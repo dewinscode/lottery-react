@@ -53,26 +53,27 @@ export default function App() {
   };
 
   return (
-    <div className="page">
-      <div className="card">
-        <h2 className="title">🎰 Lucky 15</h2>
-        <p className="subtitle">
+    <div className="page" id="lottery-page">
+      <div className="card" id="lottery-card">
+        <h1 className="title" id="lottery-title">🎰 Lucky 15</h1>
+        <p className="subtitle" id="lottery-subtitle">
           Win if your 3 digits sum to exactly <strong>15</strong>
         </p>
 
-        <div className="digit-row">
+        <div className="digit-row" id="lottery-digit-row">
           {digits.map((d, i) => (
             <DigitBox key={i} digit={d} won={result === "win"} isRolling={isRolling} />
           ))}
         </div>
 
         {sum !== null && !isRolling && (
-          <p className="sum-text">
+          <p className="sum-text" id="lottery-sum-text">
             {digits.join(" + ")} = <strong>{sum}</strong>
           </p>
         )}
 
         <button 
+          id="btn-generate-ticket"
           className={`gen-btn ${isRolling ? "rolling" : ""}`} 
           onClick={generateTicket}
           disabled={isRolling}
@@ -82,9 +83,9 @@ export default function App() {
 
         {result && !isRolling && <ResultBanner result={result} sum={sum} />}
 
-        <div className="stats-row">
-          <StatsCard label="Total Played" value={total} />
-          <StatsCard label="Wins" value={wins} color="#10b981" />
+        <div className="stats-row" id="lottery-stats-row">
+          <StatsCard id="stats-total-played" label="Total Played" value={total} />
+          <StatsCard id="stats-wins" label="Wins" value={wins} color="#10b981" />
         </div>
 
         {history.length > 0 && <HistoryList history={history} />}

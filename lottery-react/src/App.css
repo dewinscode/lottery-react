@@ -5,20 +5,21 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Outfit', 'Poppins', sans-serif;
   background-color: #0b0c16;
 }
 
 /* Page background - animated aurora glow */
 .page {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: radial-gradient(circle at 10% 20%, rgba(90, 20, 150, 0.25) 0%, transparent 40%),
               radial-gradient(circle at 90% 80%, rgba(0, 180, 200, 0.2) 0%, transparent 45%),
               linear-gradient(135deg, #070814 0%, #0c0f26 100%);
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -42,17 +43,17 @@ body {
 
 /* Title text with neon gradient */
 .title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 6px;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
   background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #b15dff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.5px;
 }
 
 .subtitle {
-  font-size: 14px;
+  font-size: 15px;
   color: #a0aec0;
   margin-bottom: 2rem;
 }
@@ -207,6 +208,8 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
   border-width: 1px;
   border-style: solid;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 @keyframes slideDownFade {
@@ -230,10 +233,10 @@ body {
 
 @keyframes winGlowPulse {
   0% {
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
   }
   100% {
-    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.45);
   }
 }
 
@@ -330,34 +333,75 @@ body {
 }
 
 /* Responsive Media Queries */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
+  .page {
+    padding: 1rem 0.75rem;
+  }
+
   .card {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.25rem;
+    border-radius: 20px;
   }
 
   .title {
-    font-size: 24px;
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    margin-bottom: 1.5rem;
+  }
+
+  .digit-row {
+    gap: 10px;
   }
 
   .digit-box {
     width: 68px;
     height: 84px;
-    font-size: 40px;
+    font-size: 38px;
+    border-radius: 12px;
+  }
+
+  .gen-btn {
+    padding: 14px;
+    font-size: 15px;
+    margin-bottom: 1.25rem;
+  }
+
+  .stats-row {
+    gap: 10px;
+  }
+
+  .stats-card {
+    padding: 12px 10px;
+  }
+
+  .stats-value {
+    font-size: 20px;
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 360px) {
+  .page {
+    padding: 0.75rem 0.5rem;
+  }
+
   .card {
     padding: 1.5rem 1rem;
   }
 
+  .digit-row {
+    gap: 8px;
+  }
+
   .digit-box {
-    width: 56px;
-    height: 72px;
+    width: 58px;
+    height: 74px;
     font-size: 32px;
   }
 
   .title {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
