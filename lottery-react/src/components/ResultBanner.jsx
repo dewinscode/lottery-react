@@ -2,9 +2,15 @@ export default function ResultBanner({ result, sum }) {
   const won = result === "win";
   return (
     <div className={`result-banner ${won ? "win" : "lose"}`}>
-      {won
-        ? "🏆 You won! The digits sum to 15!"
-        : `😔 Not this time. Sum was ${sum}, needed 15.`}
+      {won ? (
+        <span>
+          🎉 <strong>JACKPOT WINNER!</strong> Sum is exactly 15! 🏆
+        </span>
+      ) : (
+        <span>
+          💫 Not quite! Sum was <strong>{sum}</strong> (needed 15). Try again!
+        </span>
+      )}
     </div>
   );
 }

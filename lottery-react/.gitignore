@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 # OS
 Thumbs.db
+.vercel
+.env*
